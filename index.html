@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editkaro.in Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #12c2e9);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      color: #fff;
+    }
+
+    /* Floating particles (UI effect) */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png');
+      opacity: 0.2;
+      pointer-events: none;
+      animation: float 20s linear infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes float {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+      animation: fadeIn 2s ease;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    header p {
+      color: #eee;
+      font-size: 1.2rem;
+    }
+
+    /* Filter Buttons */
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 30px 0;
+      gap: 12px;
+    }
+
+    .filter-buttons button {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .filter-buttons button:hover {
+      transform: scale(1.1);
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* Portfolio Grid */
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: slideUp 1s forwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.3s; }
+    .card:nth-child(2) { animation-delay: 0.5s; }
+    .card:nth-child(3) { animation-delay: 0.7s; }
+    .card:nth-child(4) { animation-delay: 0.9s; }
+    .card:nth-child(5) { animation-delay: 1.1s; }
+
+    .card:hover {
+      transform: translateY(-12px) scale(1.04);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    }
+
+    .card iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+
+    .card h3 {
+      margin: 15px 0 5px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #ddd;
+      padding: 0 15px 20px;
+    }
+
+    /* Animations */
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.2rem; }
+      .filter-buttons button { font-size: 0.8rem; padding: 8px 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>🎬 Editkaro.in Portfolio</h1>
+    <p>Social Media Marketing & Video Editing Agency</p>
+  </header>
+
+  <!-- Filter Buttons -->
+  <div class="filter-buttons">
+    <button onclick="filterSelection('all')">All</button>
+    <button onclick="filterSelection('short')">Short-form</button>
+    <button onclick="filterSelection('long')">Long-form</button>
+    <button onclick="filterSelection('gaming')">Gaming</button>
+    <button onclick="filterSelection('ads')">Ads</button>
+    <button onclick="filterSelection('anime')">Anime</button>
+  </div>
+
+  <!-- Portfolio Grid -->
+  <div class="portfolio">
+    <div class="card short">
+      <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" allowfullscreen></iframe>
+      <h3>Short-form Video</h3>
+      <p>Quick and engaging edits for reels and TikTok.</p>
+    </div>
+
+    <div class="card long">
+      <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+      <h3>Long-form Video</h3>
+      <p>Professional storytelling with long-form content.</p>
+    </div>
+
+    <div class="card gaming">
+      <iframe src="https://www.youtube.com/embed/K4DyBUG242c" allowfullscreen></iframe>
+      <h3>Gaming Video</h3>
+      <p>High-energy edits for gaming content.</p>
+    </div>
+
+    <div class="card ads">
+      <iframe src="https://www.youtube.com/embed/ktlTxC4QG8g" allowfullscreen></iframe>
+      <h3>Advertisement</h3>
+      <p>Creative ads that drive conversions.</p>
+    </div>
+
+    <div class="card anime">
+      <iframe src="https://www.youtube.com/embed/iqf2myuJ9iM" allowfullscreen></iframe>
+      <h3>Anime Edits</h3>
+      <p>Stylish anime video edits with transitions.</p>
+    </div>
+  </div>
+
+  <!-- JavaScript for Filtering -->
+  <script>
+    function filterSelection(category) {
+      let cards = document.querySelectorAll('.card');
+      if (category === 'all') {
+        cards.forEach(card => card.style.display = "block");
+      } else {
+        cards.forEach(card => {
+          card.style.display = card.classList.contains(category) ? "block" : "none";
+        });
+      }
+    }
+    // Show all on page load
+    filterSelection('all');
+  </script>
+
+</body>
+</html>
